@@ -1,0 +1,16 @@
+{
+  "name": "voxbridge",
+  "private": true,
+  "description": "VoxBridge — voice/video platform (frontend + backend)",
+  "scripts": {
+    "dev:frontend": "npm run dev --workspace=voice-agent-platform-frontend",
+    "dev:backend": "npm run dev --workspace=voice-agent-platform-backend",
+    "build:frontend": "npm run build --workspace=voice-agent-platform-frontend",
+    "start:frontend": "npm run start --workspace=voice-agent-platform-frontend",
+    "start:backend": "npm run start --workspace=voice-agent-platform-backend"
+  },
+  "workspaces": [
+    "voice-agent-platform/backend",
+    "voice-agent-platform/frontend"
+  ]
+}
