@@ -89,25 +89,41 @@ npm run dev
 
 Create a room from the lobby, then open the same room URL in another tab or browser to test a call.
 
-## Deployment (e.g. Vercel)
+## Deployment
 
-The repo root is **voxbridge**; the app lives in **voice-agent-platform**. Deploy **frontend** and **backend** as separate projects.
+Repo root is **voxbridge**; the app is under **voice-agent-platform**. Deploy **frontend on Vercel** and **backend on Render**, then connect them with env vars.
 
-### Frontend (Next.js)
+### 1. Backend on Render (deploy first)
 
-1. Create a new project and connect the **voxbridge** repo.
-2. Set **Root Directory**: click **Edit** next to “Root Directory” and set it to **`voice-agent-platform/frontend`** (type the path or open **voice-agent-platform** → **frontend**).
-3. Framework should auto-detect as **Next.js**. Add env var **`NEXT_PUBLIC_SOCKET_URL`** = your backend URL (e.g. `https://your-backend.vercel.app` or your Node server URL).
-4. Deploy.
+1. Go to [render.com](https://render.com) → **Dashboard** → **New** → **Web Service**.
+2. Connect your **voxbridge** repo (GitHub).
+3. **Root Directory**: set to **`voice-agent-platform/backend`** (type it if the picker doesn’t show it).
+4. **Runtime**: Node.
+5. **Build Command**: `npm install` (or leave default).
+6. **Start Command**: `npm start` (runs `node src/server.js`).
+7. **Environment variables** (Environment tab):
+   - `NODE_ENV` = `production`
+   - `PORT` = leave empty (Render sets this)
+   - `CORS_ORIGIN` = your frontend URL, e.g. `https://your-app.vercel.app` (add after you deploy the frontend; you can add/update it later)
+   - `OPENAI_API_KEY` = your key (optional; only if you use “Add AI assistant”)
+8. Create Web Service. Copy the service URL (e.g. `https://your-backend.onrender.com`).
 
-### Backend (Node)
+### 2. Frontend on Vercel
 
-1. Create another project and connect the same **voxbridge** repo.
-2. Set **Root Directory** to **`voice-agent-platform/backend`**.
-3. Add env vars (e.g. **`PORT`**, **`CORS_ORIGIN`** = your frontend URL, **`OPENAI_API_KEY`** if you use the AI assistant).
-4. Deploy. Use the deployed backend URL as **NEXT_PUBLIC_SOCKET_URL** in the frontend project.
+1. Go to [vercel.com](https://vercel.com) → **Add New** → **Project**.
+2. Import your **voxbridge** repo.
+3. **Root Directory**: set to **`voice-agent-platform/frontend`** (Edit → type or browse to that path).
+4. Framework should auto-detect as **Next.js**. Leave Build/Output as default.
+5. **Environment variables**:
+   - `NEXT_PUBLIC_SOCKET_URL` = your Render backend URL (e.g. `https://your-backend.onrender.com`).
+6. Deploy.
 
-If the directory picker only shows **backend**, set Root Directory by **typing** `voice-agent-platform/frontend` in the Root Directory field instead of browsing.
+### 3. Connect backend to frontend
+
+1. In **Render** → your backend service → **Environment** → set **`CORS_ORIGIN`** to your Vercel frontend URL (e.g. `https://your-app.vercel.app`). Save (redeploy if needed).
+2. In **Vercel** → your frontend project → **Settings** → **Environment Variables** → ensure **`NEXT_PUBLIC_SOCKET_URL`** is the Render backend URL. Redeploy if you change it.
+
+If the Root Directory picker only shows one folder, type the path manually: **`voice-agent-platform/frontend`** for Vercel and **`voice-agent-platform/backend`** for Render.
 
 ## Optional: TURN server
 
