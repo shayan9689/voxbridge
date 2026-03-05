@@ -7,32 +7,32 @@ export default function CallRoomHeader({ roomId, aiActive }) {
   const { openSettings } = useSettings();
 
   return (
-    <header className="relative h-14 flex items-center justify-between px-6 bg-white border-b border-[var(--card-border)] flex-shrink-0">
-      <div className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded bg-[var(--accent)] flex items-center justify-center text-white text-sm font-bold">
+    <header className="relative h-12 sm:h-14 flex items-center justify-between px-3 sm:px-6 bg-white border-b border-[var(--card-border)] flex-shrink-0 gap-2">
+      <div className="flex items-center gap-2 min-w-0">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded bg-[var(--accent)] flex items-center justify-center text-white text-xs sm:text-sm font-bold flex-shrink-0">
           V
         </div>
-        <span className="text-lg font-semibold text-[var(--text-primary)]">VoxBridge</span>
+        <span className="text-base sm:text-lg font-semibold text-[var(--text-primary)] truncate hidden sm:inline">VoxBridge</span>
       </div>
-      <div className="flex items-center gap-3 absolute left-1/2 -translate-x-1/2">
-        <span className="text-[var(--text-primary)] font-medium"># {roomId}</span>
+      <div className="flex items-center gap-2 sm:gap-3 absolute left-1/2 -translate-x-1/2 min-w-0 max-w-[60%] sm:max-w-none">
+        <span className="text-[var(--text-primary)] font-medium text-sm sm:text-base truncate"># {roomId}</span>
         {aiActive && (
-          <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-[var(--accent)]">
-            AI ASSISTANT ACTIVE
+          <span className="rounded-full bg-indigo-100 px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium text-[var(--accent)] flex-shrink-0 hidden sm:inline">
+            AI ACTIVE
           </span>
         )}
       </div>
-      <nav className="flex items-center gap-2">
-        <button type="button" className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Search">
+      <nav className="flex items-center gap-0.5 sm:gap-2 flex-shrink-0">
+        <button type="button" className="p-2 min-w-[40px] min-h-[40px] sm:min-w-0 sm:min-h-0 flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Search">
           <SearchIcon />
         </button>
-        <button type="button" className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Notifications">
+        <button type="button" className="p-2 min-w-[40px] min-h-[40px] sm:min-w-0 sm:min-h-0 hidden sm:flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Notifications">
           <BellIcon />
         </button>
-        <button type="button" onClick={openSettings} className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Settings">
+        <button type="button" onClick={openSettings} className="p-2 min-w-[40px] min-h-[40px] sm:min-w-0 sm:min-h-0 flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Settings">
           <SettingsIcon />
         </button>
-        <button type="button" className="w-8 h-8 rounded-full bg-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)]" aria-label="Profile">
+        <button type="button" className="w-7 h-7 sm:w-8 sm:h-8 min-w-[40px] min-h-[40px] sm:min-w-0 sm:min-h-0 rounded-full bg-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)]" aria-label="Profile">
           <ProfileIcon />
         </button>
       </nav>

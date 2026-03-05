@@ -69,8 +69,8 @@ export default function Home() {
         </aside>
 
         {/* Center: theme + Join card */}
-        <div className="flex-1 flex flex-col items-center justify-center pt-6 pb-6 min-w-0 px-4">
-          <div className="flex items-center gap-3 mb-6">
+        <div className="flex-1 flex flex-col items-center justify-center pt-4 sm:pt-6 pb-4 sm:pb-6 min-w-0 px-3 sm:px-4 w-full">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 mb-4 sm:mb-6 w-full max-w-lg">
             <span className="rounded-full bg-[var(--card-border)] px-3 py-1 text-xs font-medium text-[var(--text-secondary)]">
               v2.4.0 Stable
             </span>

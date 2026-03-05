@@ -12,12 +12,19 @@
   --accent-hover: #4f46e5;
   --btn-primary: #2563eb;
   --btn-primary-hover: #1d4ed8;
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--page-bg);
   color: var(--text-primary);
   min-height: 100vh;
+  min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -4,7 +4,7 @@ export default function CallRoomSidebar({ currentRoomId, participantCount = 0, a
   const router = useRouter();
 
   return (
-    <aside className="w-56 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
+    <aside className="hidden md:flex w-56 flex-shrink-0 bg-white border-r border-gray-200 flex-col">
       <div className="p-4 border-b border-gray-200">
         <div className="flex items-center justify-between">
           <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">Rooms</span>

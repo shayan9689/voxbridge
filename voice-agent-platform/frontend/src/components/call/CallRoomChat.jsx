@@ -22,7 +22,7 @@ export default function CallRoomChat({ participantCount = 0, messages, onSendMes
   };
 
   return (
-    <aside className="w-80 flex-shrink-0 bg-white border-l border-[var(--card-border)] flex flex-col">
+    <aside className="hidden lg:flex w-72 xl:w-80 flex-shrink-0 bg-white border-l border-[var(--card-border)] flex-col">
       <div className="flex border-b border-[var(--card-border)]">
         <button
           type="button"

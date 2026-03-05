@@ -205,14 +205,14 @@ export default function UserSettingsModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 p-0 sm:p-4"
       onClick={handleBackdrop}
       role="dialog"
       aria-modal="true"
       aria-labelledby="settings-title"
     >
       <div
-        className="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden"
+        className="bg-white rounded-t-2xl sm:rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] sm:max-h-[85vh] flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -226,7 +226,7 @@ export default function UserSettingsModal() {
           <button
             type="button"
             onClick={closeSettings}
-            className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-xl hover:bg-gray-100"
+            className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-xl hover:bg-gray-100"
             aria-label="Close"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -379,18 +379,18 @@ export default function UserSettingsModal() {
         </div>
 
         {/* Footer actions */}
-        <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[var(--card-border)] bg-gray-50 rounded-b-2xl flex-shrink-0">
+        <div className="flex items-center justify-end gap-3 px-4 sm:px-6 py-4 border-t border-[var(--card-border)] bg-gray-50 rounded-b-2xl flex-shrink-0">
           <button
             type="button"
             onClick={closeSettings}
-            className="px-5 py-2.5 text-sm font-medium text-[var(--accent)] border-2 border-[var(--accent)] rounded-xl hover:bg-indigo-50 transition-colors"
+            className="px-4 sm:px-5 py-2.5 min-h-[44px] text-sm font-medium text-[var(--accent)] border-2 border-[var(--accent)] rounded-xl hover:bg-indigo-50 transition-colors"
           >
             Cancel
           </button>
           <button
             type="button"
             onClick={handleSave}
-            className="px-5 py-2.5 text-sm font-medium text-white bg-[var(--accent)] rounded-xl shadow-md hover:bg-indigo-700 transition-colors"
+            className="px-4 sm:px-5 py-2.5 min-h-[44px] text-sm font-medium text-white bg-[var(--accent)] rounded-xl shadow-md hover:bg-indigo-700 transition-colors"
           >
             Save Changes
           </button>

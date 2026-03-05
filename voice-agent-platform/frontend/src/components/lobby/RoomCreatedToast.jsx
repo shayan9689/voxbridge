@@ -5,18 +5,18 @@
 export default function RoomCreatedToast({ roomName, roomId, onJoin, onCopy, onClose }) {
   if (!roomId) return null;
   return (
-    <div className="fixed bottom-6 right-6 z-50 w-[360px] rounded-lg border border-[var(--card-border)] bg-white p-4 shadow-lg">
+    <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:w-[360px] z-50 rounded-lg border border-[var(--card-border)] bg-white p-4 shadow-lg max-w-[calc(100vw-2rem)] sm:max-w-none">
       <div className="flex items-start justify-between gap-2">
-        <div>
+        <div className="min-w-0">
           <h3 className="font-semibold text-[var(--text-primary)]">ROOM CREATED!</h3>
-          <p className="mt-1 text-sm text-[var(--text-secondary)]">
+          <p className="mt-1 text-sm text-[var(--text-secondary)] break-words">
             &quot;{roomName || 'Room'}&quot; is ready. Share ID {roomId} with your team.
           </p>
         </div>
         <button
           type="button"
           onClick={onClose}
-          className="p-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+          className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] flex-shrink-0"
           aria-label="Close"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,14 +28,14 @@ export default function RoomCreatedToast({ roomName, roomId, onJoin, onCopy, onC
         <button
           type="button"
           onClick={onJoin}
-          className="flex-1 rounded-lg bg-[var(--btn-primary)] py-2 text-sm font-medium text-white hover:bg-[var(--btn-primary-hover)]"
+          className="flex-1 rounded-lg bg-[var(--btn-primary)] py-2.5 text-sm font-medium text-white hover:bg-[var(--btn-primary-hover)] min-h-[44px]"
         >
           Join Now
         </button>
         <button
           type="button"
           onClick={onCopy}
-          className="flex-1 rounded-lg border border-[var(--btn-primary)] py-2 text-sm font-medium text-[var(--btn-primary)] hover:bg-indigo-50"
+          className="flex-1 rounded-lg border border-[var(--btn-primary)] py-2.5 text-sm font-medium text-[var(--btn-primary)] hover:bg-indigo-50 min-h-[44px]"
         >
           Copy Link
         </button>

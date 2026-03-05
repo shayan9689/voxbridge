@@ -19,18 +19,21 @@ export default function CallControlBar({
   const timer = hh > 0 ? `${String(hh).padStart(2, '0')}:${mm}:${ss}` : `00:${mm}:${ss}`;
 
   return (
-    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 rounded-xl bg-white px-6 py-3 shadow-lg border border-[var(--card-border)]">
-      <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
+    <div
+      className="absolute bottom-4 left-2 right-2 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 flex flex-wrap items-center justify-center gap-2 sm:gap-4 rounded-xl bg-white px-3 py-2.5 sm:px-6 sm:py-3 shadow-lg border border-[var(--card-border)]"
+      style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))' }}
+    >
+      <div className="flex items-center gap-2 text-xs sm:text-sm text-[var(--text-secondary)] order-1 w-full sm:w-auto justify-center sm:justify-start">
         <span className="font-medium text-[var(--text-primary)]">VoiceAssist</span>
-        <span className="w-2 h-2 rounded-full bg-emerald-500" aria-hidden />
+        <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500" aria-hidden />
         <span className="tabular-nums">{timer}</span>
       </div>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-0.5 sm:gap-1 flex-wrap justify-center order-2">
         <button
           type="button"
           onClick={toggleMute}
           title={isMuted ? 'Unmute' : 'Mute'}
-          className={`p-2.5 rounded-lg flex items-center gap-1 ${isMuted ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200'}`}
+          className={`p-2 sm:p-2.5 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 rounded-lg flex items-center justify-center gap-1 ${isMuted ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200'}`}
         >
           <MicIcon muted={isMuted} level={isMuted ? 0 : micLevel} />
         </button>
@@ -38,7 +41,7 @@ export default function CallControlBar({
           type="button"
           onClick={toggleVideo}
           title={isVideoEnabled ? 'Turn off camera' : 'Turn on camera'}
-          className={`p-2.5 rounded-lg ${!isVideoEnabled ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200'}`}
+          className={`p-2 sm:p-2.5 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 rounded-lg flex items-center justify-center ${!isVideoEnabled ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200'}`}
         >
           <VideoIcon off={!isVideoEnabled} />
         </button>
@@ -46,24 +49,24 @@ export default function CallControlBar({
           type="button"
           onClick={toggleScreenShare}
           title={isScreenSharing ? 'Stop sharing' : 'Share screen'}
-          className={`p-2.5 rounded-lg ${isScreenSharing ? 'bg-[var(--accent)] text-white' : 'bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200'}`}
+          className={`p-2 sm:p-2.5 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 rounded-lg flex items-center justify-center ${isScreenSharing ? 'bg-[var(--accent)] text-white' : 'bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200'}`}
         >
           <ScreenShareIcon />
         </button>
-        <button type="button" className="p-2.5 rounded-lg bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200" title="Raise hand">
+        <button type="button" className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 rounded-lg flex items-center justify-center bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200 hidden sm:flex" title="Raise hand">
           <HandIcon />
         </button>
-        <button type="button" className="p-2.5 rounded-lg bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200" title="Chat">
+        <button type="button" className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 rounded-lg flex items-center justify-center bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200 hidden sm:flex" title="Chat">
           <ChatIcon />
         </button>
-        <button type="button" className="p-2.5 rounded-lg bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200" title="Reactions">
+        <button type="button" className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 rounded-lg flex items-center justify-center bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200 hidden sm:flex" title="Reactions">
           <ReactionIcon />
         </button>
       </div>
       <button
         type="button"
         onClick={onLeave}
-        className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 flex items-center justify-center gap-1.5"
+        className="rounded-lg bg-red-600 px-3 py-2 sm:px-4 text-sm font-medium text-white hover:bg-red-700 flex items-center justify-center gap-1.5 min-h-[44px] order-3 w-full sm:w-auto"
       >
         <LeaveIcon />
         Leave

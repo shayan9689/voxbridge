@@ -8,24 +8,24 @@ export default function Header() {
 
   return (
     <header className="border-b border-[var(--accent)]/30 bg-[var(--card-bg)]">
-      <div className="w-full max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-[var(--accent)] flex items-center justify-center text-white font-bold text-lg">
+      <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2 min-w-0">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[var(--accent)] flex items-center justify-center text-white font-bold text-base sm:text-lg flex-shrink-0">
             V
           </div>
-          <span className="text-xl font-semibold text-[var(--text-primary)]">VoxBridge</span>
+          <span className="text-base sm:text-xl font-semibold text-[var(--text-primary)] truncate">VoxBridge</span>
         </div>
-        <nav className="flex items-center gap-4">
-          <button type="button" className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Search">
+        <nav className="flex items-center gap-1 sm:gap-4 flex-shrink-0">
+          <button type="button" className="p-2.5 sm:p-2 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Search">
             <SearchIcon />
           </button>
-          <button type="button" className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Notifications">
+          <button type="button" className="p-2.5 sm:p-2 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 hidden sm:flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Notifications">
             <BellIcon />
           </button>
-          <button type="button" onClick={openSettings} className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Settings">
+          <button type="button" onClick={openSettings} className="p-2.5 sm:p-2 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)]" aria-label="Settings">
             <SettingsIcon />
           </button>
-          <button type="button" className="w-9 h-9 rounded-full bg-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)]" aria-label="Profile">
+          <button type="button" className="w-8 h-8 sm:w-9 sm:h-9 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 rounded-full bg-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)]" aria-label="Profile">
             <ProfileIcon />
           </button>
         </nav>

@@ -177,13 +177,13 @@ export default function CallRoom({ roomId, initialParticipants = [], userName })
             </div>
           )}
 
-          <div className="flex-1 flex flex-col min-h-0 overflow-hidden p-4 relative">
+          <div className="flex-1 flex flex-col min-h-0 overflow-hidden p-2 sm:p-4 relative">
             {totalTiles === 0 ? (
               <div className="flex-1 flex items-center justify-center text-[var(--text-secondary)] text-sm">
                 Connecting…
               </div>
             ) : (
-            <div className={`flex-1 min-h-0 grid gap-3 ${gridClass} w-full max-w-5xl mx-auto`}>
+            <div className={`flex-1 min-h-0 grid gap-2 sm:gap-3 ${gridClass} w-full max-w-5xl mx-auto`}>
               {tiles.map(({ key, stream, displayName, isLocal }) => (
                 <div key={key} className="min-h-0 flex w-full h-full">
                   <VideoTile
@@ -204,13 +204,13 @@ export default function CallRoom({ roomId, initialParticipants = [], userName })
 
             {/* AI assistant: floating panel when AI is in room (Add AI button is in control bar above Leave) */}
             {aiInRoom && (
-              <div className="absolute bottom-4 left-4 z-20 w-80 rounded-xl border-2 border-[var(--accent)] bg-white p-3 shadow-xl">
-                <div className="flex items-center justify-between mb-2">
+              <div className="absolute bottom-2 left-2 right-2 sm:left-4 sm:right-auto z-20 w-auto sm:w-80 max-w-[calc(100vw-1rem)] rounded-xl border-2 border-[var(--accent)] bg-white p-3 shadow-xl">
+                <div className="flex items-center justify-between mb-2 gap-2">
                   <span className="text-xs font-semibold text-[var(--text-primary)]">AI Assistant</span>
                   <button
                     type="button"
                     onClick={handleRemoveAi}
-                    className="p-1 rounded-lg text-gray-500 hover:text-red-600 hover:bg-red-50"
+                    className="p-2 min-w-[44px] min-h-[44px] rounded-lg text-gray-500 hover:text-red-600 hover:bg-red-50 flex items-center justify-center flex-shrink-0"
                     aria-label="Remove AI assistant"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,7 +226,7 @@ export default function CallRoom({ roomId, initialParticipants = [], userName })
                     placeholder="Ask the AI..."
                     className="flex-1 min-w-0 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 placeholder-gray-500 focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
                   />
-                  <button type="submit" className="rounded-lg bg-[var(--accent)] px-3 py-2 text-sm font-medium text-white hover:opacity-90">
+                  <button type="submit" className="rounded-lg bg-[var(--accent)] px-3 py-2 text-sm font-medium text-white hover:opacity-90 min-h-[44px] flex-shrink-0">
                     Send
                   </button>
                 </form>
@@ -249,11 +249,11 @@ export default function CallRoom({ roomId, initialParticipants = [], userName })
         <CallRoomChat participantCount={participantCount} participants={participants} />
       </div>
 
-      <footer className="flex-shrink-0 border-t border-[var(--card-border)] bg-[var(--card-bg)] px-6 py-3 flex items-center justify-between text-sm text-[var(--text-secondary)]">
+      <footer className="flex-shrink-0 border-t border-[var(--card-border)] bg-[var(--card-bg)] px-3 sm:px-6 py-2 sm:py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs sm:text-sm text-[var(--text-secondary)]">
         <span>© 2026 VoxBridge</span>
-        <span className="flex gap-4">
-          <a href="#" className="text-[var(--accent)] hover:underline">Privacy Policy</a>
-          <a href="#" className="text-[var(--accent)] hover:underline">Terms of Service</a>
+        <span className="flex gap-3 sm:gap-4">
+          <a href="#" className="text-[var(--accent)] hover:underline py-1">Privacy Policy</a>
+          <a href="#" className="text-[var(--accent)] hover:underline py-1">Terms of Service</a>
         </span>
       </footer>
     </div>
@@ -279,7 +279,7 @@ function ScreenSharePreview({ stream }) {
   }, [stream]);
   return (
     <div
-      className="absolute bottom-4 right-4 z-20 w-52 rounded-xl border-2 border-[var(--accent)] bg-black shadow-2xl overflow-hidden ring-2 ring-black/20"
+      className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 z-20 w-36 sm:w-52 rounded-xl border-2 border-[var(--accent)] bg-black shadow-2xl overflow-hidden ring-2 ring-black/20"
       aria-label="Screen share preview overlay"
     >
       <p className="text-xs font-medium text-white bg-black/80 px-2 py-1.5">Your screen</p>

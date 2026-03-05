@@ -63,26 +63,26 @@ export default function JoinRoom() {
 
   return (
     <>
-      <div className="max-w-lg mx-auto rounded-lg border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm overflow-hidden">
+      <div className="w-full max-w-lg mx-auto rounded-lg border border-[var(--card-border)] bg-[var(--card-bg)] shadow-sm overflow-hidden">
         {/* Tabs */}
         <div className="flex border-b border-[var(--card-border)] rounded-t-lg overflow-hidden">
           <button
             type="button"
             onClick={() => { setActiveTab('create'); setError(''); }}
-            className={`flex-1 py-3 px-4 text-sm font-medium rounded-tl-lg transition-colors ${activeTab === 'create' ? 'bg-[var(--accent)] text-white border-b-2 border-[var(--accent)]' : 'text-[var(--text-secondary)] bg-[var(--card-bg)] hover:bg-gray-100 hover:text-[var(--text-primary)]'}`}
+            className={`flex-1 py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium rounded-tl-lg transition-colors min-h-[48px] ${activeTab === 'create' ? 'bg-[var(--accent)] text-white border-b-2 border-[var(--accent)]' : 'text-[var(--text-secondary)] bg-[var(--card-bg)] hover:bg-gray-100 hover:text-[var(--text-primary)]'}`}
           >
             CREATE ROOM
           </button>
           <button
             type="button"
             onClick={() => { setActiveTab('join'); setError(''); }}
-            className={`flex-1 py-3 px-4 text-sm font-medium rounded-tr-lg transition-colors ${activeTab === 'join' ? 'bg-[var(--accent)] text-white border-b-2 border-[var(--accent)]' : 'text-[var(--text-secondary)] bg-[var(--card-bg)] hover:bg-gray-100 hover:text-[var(--text-primary)]'}`}
+            className={`flex-1 py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium rounded-tr-lg transition-colors min-h-[48px] ${activeTab === 'join' ? 'bg-[var(--accent)] text-white border-b-2 border-[var(--accent)]' : 'text-[var(--text-secondary)] bg-[var(--card-bg)] hover:bg-gray-100 hover:text-[var(--text-primary)]'}`}
           >
             Join Room
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4">
           {activeTab === 'create' ? (
             <>
               <div>
@@ -157,13 +157,13 @@ export default function JoinRoom() {
               (activeTab === 'create' && !roomIdentity.trim()) ||
               (activeTab === 'join' && !joinRoomId.trim())
             }
-            className="w-full rounded-lg bg-[var(--btn-primary)] py-3 text-sm font-medium text-white hover:bg-[var(--btn-primary-hover)] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-lg bg-[var(--btn-primary)] py-3 text-sm font-medium text-white hover:bg-[var(--btn-primary-hover)] disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px]"
           >
             {loading ? 'Please wait…' : activeTab === 'create' ? 'Start Room' : 'Join Room'}
           </button>
         </form>
 
-        <div className="px-6 pb-6 flex items-start gap-2 text-xs text-[var(--text-secondary)]">
+        <div className="px-4 sm:px-6 pb-4 sm:pb-6 flex items-start gap-2 text-xs text-[var(--text-secondary)]">
           <span className="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full border border-[var(--text-secondary)] flex items-center justify-center text-[10px]">i</span>
           <p>
             Rooms are encrypted end-to-end. By creating a room, you agree to our{' '}

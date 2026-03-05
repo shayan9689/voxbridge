@@ -54,20 +54,20 @@ export default function RoomPage() {
 
   if (!roomId) {
     return (
-      <main className="min-h-screen flex items-center justify-center p-4">
-        <p className="text-slate-400">Loading…</p>
+      <main className="min-h-[100dvh] flex items-center justify-center p-4">
+        <p className="text-slate-400 text-sm sm:text-base">Loading…</p>
       </main>
     );
   }
 
   if (failed) {
     return (
-      <main className="min-h-screen flex flex-col items-center justify-center p-4">
-        <p className="text-red-400 mb-4">Could not join room. It may be full or invalid.</p>
+      <main className="min-h-[100dvh] flex flex-col items-center justify-center p-4">
+        <p className="text-red-400 mb-4 text-sm sm:text-base text-center">Could not join room. It may be full or invalid.</p>
         <button
           type="button"
           onClick={() => router.push('/')}
-          className="rounded-lg bg-slate-600 px-4 py-2 text-white"
+          className="rounded-lg bg-slate-600 px-4 py-2.5 text-white min-h-[44px]"
         >
           Back to home
         </button>
